@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>TestNG:  Product Search Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Product Search Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon Feb 10 03:19:32 IST 2025</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (135 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='runners.ProductSearchRunner.setUpClass()'><b>setUpClass</b><br>Test class: runners.ProductSearchRunner<br>Parameters: org.testng.TestRunner@481ba2cf</td>
+<td><div><pre>java.lang.IllegalArgumentException: Couldn&apos;t create parent directories of &apos;C:\Users\91866\eclipse-workspace\DemoWebShop\target\cucumber-reports\product-search.html&apos;.
+Make sure the the parent directory &apos;C:\Users\91866\eclipse-workspace\DemoWebShop\target\cucumber-reports&apos; isn&apos;t a file.
+
+Note: This usually happens when plugins write to colliding paths.
+For example: &apos;html:target/cucumber, json:target/cucumber/report.json&apos;
+You can fix this by making the paths do no collide.
+For example: &apos;html:target/cucumber/report.html, json:target/cucumber/report.json&apos;
+The details are in the stack trace below:
+	at io.cucumber.core.plugin.PluginFactory.createFileOutputStream(PluginFactory.java:222)
+	at io.cucumber.core.plugin.PluginFactory.openStream(PluginFactory.java:199)
+	at io.cucumber.core.plugin.PluginFactory.convert(PluginFactory.java:166)
+	at io.cucumber.core.plugin.PluginFactory.instantiate(PluginFactory.java:99)
+	at io.cucumber.core.plugin.PluginFactory.create(PluginFactory.java:63)
+	at io.cucumber.core.plugin.Plugins.createPlugins(Plugins.java:32)
+	at io.cucumber.core.plugin.Plugins.&lt;init&gt;(Plugins.java:25)
+	at io.cucumber.testng.TestNGCucumberRunner.&lt;init&gt;(TestNGCucumberRunner.java:108)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.setUpClass(AbstractTestNGCucumberTests.java:27)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: java.nio.file.FileAlreadyExistsException: C:\Users\91866\eclipse-workspace\DemoWebShop\target\cucumber-reports
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:87)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.createDirectory(WindowsFileSystemProvider.java:509)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:690)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:797)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:743)
+	at io.cucumber.core.plugin.PluginFactory.createFileOutputStream(PluginFactory.java:218)
+	... 34 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace884603232", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace884603232'><pre>java.lang.IllegalArgumentException: Couldn&apos;t create parent directories of &apos;C:\Users\91866\eclipse-workspace\DemoWebShop\target\cucumber-reports\product-search.html&apos;.
+Make sure the the parent directory &apos;C:\Users\91866\eclipse-workspace\DemoWebShop\target\cucumber-reports&apos; isn&apos;t a file.
+
+Note: This usually happens when plugins write to colliding paths.
+For example: &apos;html:target/cucumber, json:target/cucumber/report.json&apos;
+You can fix this by making the paths do no collide.
+For example: &apos;html:target/cucumber/report.html, json:target/cucumber/report.json&apos;
+The details are in the stack trace below:
+	at io.cucumber.core.plugin.PluginFactory.createFileOutputStream(PluginFactory.java:222)
+	at io.cucumber.core.plugin.PluginFactory.openStream(PluginFactory.java:199)
+	at io.cucumber.core.plugin.PluginFactory.convert(PluginFactory.java:166)
+	at io.cucumber.core.plugin.PluginFactory.instantiate(PluginFactory.java:99)
+	at io.cucumber.core.plugin.PluginFactory.create(PluginFactory.java:63)
+	at io.cucumber.core.plugin.Plugins.createPlugins(Plugins.java:32)
+	at io.cucumber.core.plugin.Plugins.&lt;init&gt;(Plugins.java:25)
+	at io.cucumber.testng.TestNGCucumberRunner.&lt;init&gt;(TestNGCucumberRunner.java:108)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.setUpClass(AbstractTestNGCucumberTests.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+	at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:180)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:122)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: java.nio.file.FileAlreadyExistsException: C:\Users\91866\eclipse-workspace\DemoWebShop\target\cucumber-reports
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:87)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.createDirectory(WindowsFileSystemProvider.java:509)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:690)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:797)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:743)
+	at io.cucumber.core.plugin.PluginFactory.createFileOutputStream(PluginFactory.java:218)
+	... 34 more
+</pre></div></td>
+<td>0</td>
+<td>runners.ProductSearchRunner@5a59ca5e</td></tr>
+</table><p>
+</body>
+</html>
