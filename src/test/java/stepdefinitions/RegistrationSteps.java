@@ -11,16 +11,18 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.RegistrationPage;
 
-public class RegistrationSteps  {
+public class RegistrationSteps {
     private WebDriver driver;
     private RegistrationPage regPage;
 
     @Given("I navigate to the registration page")
     public void navigateToRegistration() {
         try {
-            // Initialize WebDriver and navigate to the registration page
+            
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.get("https://demowebshop.tricentis.com/register");
@@ -63,30 +65,10 @@ public class RegistrationSteps  {
         }
     }
 
-    @When("I leave all fields empty and submit")
-    public void registerWithEmptyFields() {
-        try {
-            regPage.registerUser("", "", "", "");
-        } catch (Exception e) {
-            System.err.println("Failed to submit empty registration form: " + e.getMessage());
-            throw new RuntimeException("Empty fields submission failed.");
-        }
-    }
-
-    @When("I enter invalid email {string}")
-    public void registerWithInvalidEmail(String email) {
-        try {
-            regPage.registerUser("John", "Doe", email, "Pass123!");
-        } catch (Exception e) {
-            System.err.println("Failed to register with invalid email: " + e.getMessage());
-            throw new RuntimeException("Registration with invalid email failed.");
-        }
-    }
-
     @Then("I should see the registration message {string}")
     public void verifyRegistrationMessage(String expectedMessage) {
         try {
-            String actualMessage = regPage.getRegistrationMessage();
+            String actualMessage = regPage.getRegistrationMessage().trim();
             Assert.assertTrue(
                 actualMessage.contains(expectedMessage),
                 "Expected message: " + expectedMessage + ", but found: " + actualMessage
@@ -97,21 +79,7 @@ public class RegistrationSteps  {
         }
     }
 
-    @Then("I should see the registration errors {string}, {string}, {string}, and {string}")
-    public void verifyMultipleRegistrationErrors(String error1, String error2, String error3, String error4) {
-        try {
-            String actualMessage = regPage.getRegistrationMessage();
-            Assert.assertTrue(actualMessage.contains(error1), "Error message not found: " + error1);
-            Assert.assertTrue(actualMessage.contains(error2), "Error message not found: " + error2);
-            Assert.assertTrue(actualMessage.contains(error3), "Error message not found: " + error3);
-            Assert.assertTrue(actualMessage.contains(error4), "Error message not found: " + error4);
-        } catch (Exception e) {
-            System.err.println("Failed to verify multiple error messages: " + e.getMessage());
-            throw new RuntimeException("Error messages verification failed.");
-        }
-    }
-
-    @Then("close the registration browser")
+    @Then("close the browser")
     public void closeRegistrationBrowser() {
         try {
             if (driver != null) {

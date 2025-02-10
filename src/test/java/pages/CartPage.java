@@ -30,7 +30,7 @@ public class CartPage extends BasePage {
     private final By cardCode = By.id("CardCode");
     private final By paymentInfoContinue = By.xpath("//input[@class='button-1 payment-info-next-step-button']");
     private final By confirmButton = By.cssSelector("input[value='Confirm']");
-    private final By orderConfirmation = By.cssSelector(".section.order-completed");
+    private final By orderConfirmation = By.xpath("//strong[normalize-space()='Your order has been successfully processed!']");
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -103,7 +103,6 @@ public class CartPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(continueButton)).click();
     }
 
-
     /**
      * Handles shipping and payment method selections.
      */
@@ -146,6 +145,7 @@ public class CartPage extends BasePage {
      * @return The order confirmation message text.
      */
     public String getOrderConfirmation() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(orderConfirmation)).getText();
+        WebElement confirmationElement = wait.until(ExpectedConditions.visibilityOfElementLocated(orderConfirmation));
+        return confirmationElement.getText().trim();
     }
 }

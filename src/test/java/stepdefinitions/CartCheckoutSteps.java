@@ -1,12 +1,16 @@
 package stepdefinitions;
 
+import java.util.Map;
+
+import org.testng.Assert;
+
+import hooks.Hooks;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pages.CartPage;
 import pages.LoginPage;
-import hooks.Hooks;
-
-import java.util.Map;
 
 public class CartCheckoutSteps {
     private final LoginPage loginPage;
@@ -52,6 +56,6 @@ public class CartCheckoutSteps {
     @Then("I should see order confirmation {string}")
     public void verifyOrderConfirmation(String expectedMessage) {
         String confirmationMessage = cartPage.getOrderConfirmation();
-        assert confirmationMessage.equals(expectedMessage);
+        Assert.assertEquals(confirmationMessage, expectedMessage, "Order confirmation message mismatch.");
     }
 }

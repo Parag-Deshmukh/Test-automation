@@ -1,9 +1,9 @@
 @Checkout
 Feature: Product Checkout Flow - DemoWebShop
 
- @Checkout @Positive1
+ @Checkout @Positive
 Scenario: Checkout a product with valid shipping and payment details
-    Given I am logged in as "john12.doe@test.com" with password "Pass123!"
+    Given I am logged in as "john99.doe@test.com" with password "Pass123!"
     When I search for "Smartphone" and add to cart
     And I proceed to checkout with:
       | FirstName | John          |

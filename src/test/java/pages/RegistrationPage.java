@@ -6,7 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class RegistrationPage extends BasePage {
+public class RegistrationPage {
+    private WebDriver driver;
     private By genderMale = By.id("gender-male");
     private By firstName = By.id("FirstName");
     private By lastName = By.id("LastName");
@@ -14,11 +15,11 @@ public class RegistrationPage extends BasePage {
     private By password = By.id("Password");
     private By confirmPassword = By.id("ConfirmPassword");
     private By registerButton = By.id("register-button");
-    private By successMessage = By.cssSelector(".result");
+    private By successMessage = By.xpath("//div[@class='result']");
     private By errorMessage = By.cssSelector(".validation-summary-errors");
 
     public RegistrationPage(WebDriver driver) {
-        super(driver);
+        this.driver = driver;
     }
 
     public void registerUser(String fName, String lName, String emailId, String pwd) {
@@ -36,11 +37,11 @@ public class RegistrationPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         try {
             // Check if success message is visible
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage)).getText();
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage)).getText().trim();
         } catch (Exception e) {
             try {
                 // Check if error message is visible
-                return wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage)).getText();
+                return wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage)).getText().trim();
             } catch (Exception ex) {
                 // Log error and return a default message
                 System.out.println("No success or error message found: " + ex.getMessage());
@@ -48,6 +49,4 @@ public class RegistrationPage extends BasePage {
             }
         }
     }
-
 }
-

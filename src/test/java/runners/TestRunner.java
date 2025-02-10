@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
     features = "src/test/resources/features",
     glue = {"stepdefinitions", "hooks"},
     plugin = {"pretty", "html:target/cucumber-reports"},
-    tags = "@Positive1" // Filter to run only @Positive scenarios
+    tags = " @Negative" 
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 }
